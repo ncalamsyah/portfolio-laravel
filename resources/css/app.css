@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .navbar-light {
+        @apply hover:bg-dark rounded-full hover:text-light hover:scale-110 duration-200 py-1 mx-1;
+    }
+}
+
+:root {
+    --primary-color: #4fb6c7;
+    --light-color: #f0e7e2;
+    --dark-color: #3f4c52;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light-color);
+    font-family: "Raleway", sans-serif;
+}
+
+li {
+    padding: 0 1rem;
+}
+
+img.logo {
+    min-width: 2rem;
+}
+
+.content-div {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+}
+
+.content-div:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.loader {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--primary-color);
+    background: var(--dark-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    background: var(--light-color);
+}
+
+/* Animated Letters */
+@keyframes rubberBand {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    35% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    45% {
+        transform: scale3d(0.75, 1, 1);
+    }
+    60% {
+        transform: scale3d(1.2, 0.8, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.text-animate {
+    display: inline-block;
+    animation: bounceIn 2s ease;
+    animation-fill-mode: forwards;
+    min-width: 10px;
+}
+
+.text-animate-hover {
+    min-width: 10px;
+    display: inline-block;
+    animation-fill-mode: both;
+}
+.text-animate-hover:hover {
+    animation: rubberBand 1s;
+    cursor: default;
+}
+
+.active {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* login */
+
+.box {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    background: var(--light-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(
+        0deg,
+        transparent,
+        var(--dark-color),
+        var(--dark-color)
+    );
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(
+        0deg,
+        transparent,
+        var(--dark-color),
+        var(--dark-color)
+    );
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form-login {
+    position: absolute;
+    inset: 2px;
+    border-radius: 8px;
+    background: var(--light-color);
+    z-index: 10;
+    padding: 2em 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login h2 {
+    color: var(--light-color);
+    font-weight: 600;
+    font-size: 1.5em;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--dark-color);
+    font-size: 1.2em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: #8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    color: var(--dark-color);
+    transform: translateY(-36px);
+    font-size: 0.75em;
+}
+
+.inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--light-color);
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i {
+    height: 44px;
+}
