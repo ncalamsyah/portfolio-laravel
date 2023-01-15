@@ -2,7 +2,7 @@ import pbs from "../../../public/assets/work/pbs-thumb.png";
 import upe from "../../../public/assets/work/up-thumb.png";
 import bumdes from "../../../public/assets/work/bumdes-thumb.png";
 
-import samplepbs from "../../../public/assets/work/bluessummit1.jpg";
+import samplepbs from "../../../public/assets/work/blues-summit1.jpg";
 import sampleupe from "../../../public/assets/work/up1.png";
 import samplebumdes from "../../../public/assets/work/bumdesamanah1.png";
 
