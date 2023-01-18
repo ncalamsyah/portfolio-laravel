@@ -10,6 +10,8 @@ use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 
+use function Termwind\render;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,5 +47,9 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/admin-skills', function () {
+    return "skills";
+});
 
 require __DIR__ . '/auth.php';
